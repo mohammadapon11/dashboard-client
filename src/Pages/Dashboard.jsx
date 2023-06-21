@@ -1,7 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { FaUsersCog } from 'react-icons/fa';
 import { SiGoogleclassroom } from 'react-icons/si';
-import { AiOutlineHome } from "react-icons/ai"
 import useAdmin from "../Hooks/useAdmin";
 import ManageUsers from "./ManageUsers";
 import Instructor from "./Instructor";
@@ -43,15 +42,18 @@ const Dashboard = () => {
                                 {/* Navbar menu content here */}
                                 {admin ? (
                                     <ul className="flex items-center">
+                                        <li><Link className=" font-semibold tracking-wide transition-colors duration-200 uppercase" to="/">login another account</Link></li>
                                         <li><Link className="text-blue-600 font-semibold transition-colors duration-200 uppercase" to="/dashboard/admin"><FaUsersCog size={20} /> MANAGE USERS</Link ></li>
                                     </ul>
                                 ) : instructor ? (
                                     <ul className="flex items-center">
+                                        <li><Link className=" font-semibold tracking-wide transition-colors duration-200 uppercase" to="/">login another account</Link></li>
                                         <li><NavLink className={({ isActive }) => (isActive ? 'text-blue-600 font-semibold tracking-wide transition-colors duration-200 uppercase' : 'hover:text-blue-700 font-semibold uppercase')} to="/dashboard/instructor"><SiGoogleclassroom /> Instructor Page</NavLink></li>
                                     </ul>
                                 ) : (
                                     <ul className="flex items-center">
-                                        <li><NavLink className={({ isActive }) => (isActive ? 'text-blue-600 uppercase font-semibold tracking-wide transition-colors duration-200' : 'hover:text-blue-700 font-semibold uppercase')} to="/dashboard/student"><span className="text-xl">☑ </span>Student Page</NavLink >
+                                        <li><Link className=" font-semibold tracking-wide transition-colors duration-200 uppercase" to="/">login another account</Link></li>
+                                        <li><NavLink className={({ isActive }) => (isActive ? 'text-blue-600 uppercase font-semibold tracking-wide transition-colors duration-200' : 'hover:text-blue-700 font-semibold uppercase')} to="/dashboard/student"><span className="text-xl">☑ </span>General user Page</NavLink >
                                         </li>
                                     </ul>
                                 )}
@@ -69,24 +71,19 @@ const Dashboard = () => {
                         {/* Sidebar content here */}
                         {admin ? (
                             <ul>
-                                <li><NavLink className={({ isActive }) => (isActive ? 'text-blue-600 uppercase font-semibold tracking-wide transition-colors duration-200' : 'hover:text-blue-700 font-semibold uppercase')} to="/dashboard/manageClasses"><FaUsersCog size={20} /> Manage Classes</NavLink ></li>
-                                <li><NavLink className={({ isActive }) => (isActive ? 'text-blue-600 uppercase font-semibold tracking-wide transition-colors duration-200' : 'hover:text-blue-700 uppercase font-semibold')} to="/dashboard/manageUsers"><FaUsersCog size={20} /> Manage Users</NavLink ></li>
+                                <li><Link className=" font-semibold tracking-wide transition-colors duration-200 uppercase" to="/">login another account</Link></li>
+                                <li><Link className="text-blue-600 font-semibold transition-colors duration-200 uppercase" to="/dashboard/admin"><FaUsersCog size={20} /> MANAGE USERS</Link ></li>
                             </ul>
                         ) : instructor ? (
                             <ul>
-                                <li><Link className="hover:text-blue-700  uppercase font-semibold" to="/"><AiOutlineHome className="text-xl" /> Home</Link></li>
-                                <li><NavLink className={({ isActive }) => (isActive ? 'text-blue-600 uppercase font-semibold tracking-wide transition-colors duration-200' : 'hover:text-blue-700 font-semibold uppercase')} to="/dashboard/addClass"><SiGoogleclassroom /> Add Classes</NavLink></li>
-                                <li><NavLink className={({ isActive }) => (isActive ? 'text-blue-600 uppercase font-semibold tracking-wide transition-colors duration-200' : 'hover:text-blue-700 font-semibold uppercase')} to="/dashboard/myClasses"><SiGoogleclassroom /> My Classes</NavLink ></li>
+                                <li><Link className=" font-semibold tracking-wide transition-colors duration-200 uppercase" to="/">login another account</Link></li>
+                                <li><NavLink className={({ isActive }) => (isActive ? 'text-blue-600 font-semibold tracking-wide transition-colors duration-200 uppercase' : 'hover:text-blue-700 font-semibold uppercase')} to="/dashboard/instructor"><SiGoogleclassroom /> Instructor Page</NavLink></li>
                             </ul>
                         ) : (
                             <ul>
-
-                                <li><NavLink className={({ isActive }) => (isActive ? 'text-blue-600 uppercase font-semibold tracking-wide transition-colors duration-200' : 'hover:text-blue-700 font-semibold uppercase')} to="/dashboard/studentHome"><span className="text-xl">✔ </span>My Selected Classes</NavLink >
+                                <li><Link className=" font-semibold tracking-wide transition-colors duration-200 uppercase" to="/">login another account</Link></li>
+                                <li><NavLink className={({ isActive }) => (isActive ? 'text-blue-600 uppercase font-semibold tracking-wide transition-colors duration-200' : 'hover:text-blue-700 font-semibold uppercase')} to="/dashboard/student"><span className="text-xl">☑ </span>General User Page</NavLink >
                                 </li>
-
-                                <li><NavLink className={({ isActive }) => (isActive ? 'text-blue-600 uppercase font-semibold tracking-wide transition-colors duration-200' : 'hover:text-blue-700 uppercase font-semibold')} to="/dashboard/enrolled"><span className="text-xl">☑ </span>My Erolled Classes</NavLink ></li>
-
-                                <li><NavLink className={({ isActive }) => (isActive ? 'text-blue-600 uppercase font-semibold tracking-wide transition-colors duration-200' : 'hover:text-blue-700 uppercase font-semibold')} to="/dashboard/history"><span className="text-xl ">❏</span> My Enrolled History</NavLink ></li>
                             </ul>
                         )}
                     </ul>

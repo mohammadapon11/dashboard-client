@@ -8,6 +8,7 @@ import ManageUsers from "../Pages/ManageUsers";
 import NotFound from "../Pages/NotFound";
 import Instructor from "../Pages/Instructor";
 import Student from "../Pages/Student";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
     },
     {
         path: "/dashboard",
-        element: <Dashboard />,
+        element: <PrivateRoute><Dashboard /></PrivateRoute>,
         children: [
             {
                 path: "/dashboard/admin",

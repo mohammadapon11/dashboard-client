@@ -8,7 +8,7 @@ const useAdmin = () => {
     const { data: isAdmin, isLoading: isAdminLoading } = useQuery({
         queryKey: ["isAdmin", user?.email],
         queryFn: async () => {
-            const res = await axios.get(`http://localhost:5000/users/admin/${user?.email}`);
+            const res = await axios.get(`https://dashboard-server-ruby.vercel.app/users/admin/${user?.email}`);
             console.log("from axios isAdmin", res);
             return res.data;
         }

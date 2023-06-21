@@ -112,7 +112,7 @@ const Register = () => {
                                 <div className="divider">OR</div>
                                 <div
                                     onClick={handleGoogleSignIn}
-                                    className='flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer'
+                                    className='flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer rounded-lg hover:bg-slate-100'
                                 >
                                     <FcGoogle size={32} />
 

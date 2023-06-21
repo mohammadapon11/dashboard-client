@@ -7,7 +7,7 @@ const ManageUsers = () => {
 
     // get all users
     useEffect(() => {
-        fetch(`http://localhost:5000/users`)
+        fetch(`https://dashboard-server-ruby.vercel.app/users`)
             .then(res => res.json())
             .then(data => setUsers(data))
     }, [refresh])
@@ -15,7 +15,7 @@ const ManageUsers = () => {
     //  Role make
     const handleRole = (id, role) => {
 
-        axios.put(`http://localhost:5000/usersRole/${id}`, { role })
+        axios.put(`https://dashboard-server-ruby.vercel.app/usersRole/${id}`, { role })
             .then(res => {
                 setRefresh(!refresh)
                 console.log("from admin", res.data)

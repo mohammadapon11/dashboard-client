@@ -49,7 +49,7 @@ const Login = () => {
             .then(result => {
                 console.log(result.user)
                 // // save user to db
-                // saveUser(result.user)
+                saveUser(result.user)
                 navigate("/dashboard")
             })
             .catch(err => {
@@ -66,11 +66,13 @@ const Login = () => {
                         <div className="card shadow-2xl bg-base-100">
                             <div className="card-body">
                                 <h1 className="text-3xl text-center font-2xl">Please Login</h1>
+                                <h1 className="font-semibold text-center">Admin Email and Password: <br /> Email: admin@gmail.com <br />
+                                Password: 111111Aa@</h1>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input {...register("email", { required: true })} type="email" placeholder="email" className="input input-bordered" />
+                                    <input {...register("email", { required: true })} type="email" defaultValue="admin@gmail.com" className="input input-bordered" />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
@@ -80,9 +82,8 @@ const Login = () => {
                                         <input {...register("password", { required: true })} type={type}
                                             name="password"
                                             placeholder="Password"
-                                            value={password}
-                                            onChange={(e) => setPassword(e.target.value)}
-                                            autoComplete="current-password" className="input input-bordered w-full" />
+                                            defaultValue={password || "111111Aa@"} 
+                                            onChange={(e) => setPassword(e.target.value)}className="input input-bordered w-full" />
                                         <span className="flex justify-around cursor-pointer items-center" onClick={handleToggle}>
                                             <Icon className="absolute mr-10" icon={icon} size={20} />
                                         </span>
@@ -101,7 +102,7 @@ const Login = () => {
                                 <div className="divider">OR</div>
                                 <div
                                     onClick={handleGoogleSignIn}
-                                    className='flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer'
+                                    className='flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer rounded-lg hover:bg-slate-100'
                                 >
                                     <FcGoogle size={32} />
 
