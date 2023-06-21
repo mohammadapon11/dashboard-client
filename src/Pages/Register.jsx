@@ -9,13 +9,13 @@ import { eye } from 'react-icons-kit/feather/eye'
 import { AuthContext } from "../Providers/AuthProviders";
 import { saveUser } from "../api/auth";
 
+
 const Register = () => {
     const [password, setPassword] = useState("");
     const [type, setType] = useState('password');
     const [icon, setIcon] = useState(eyeOff);
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { createUser, googleLogin,  } = useContext(AuthContext);
-    const [error, setError] = useState('');
+    const { createUser, googleLogin, } = useContext(AuthContext);
     const navigate = useNavigate();
 
     // password hide un hide
@@ -30,16 +30,16 @@ const Register = () => {
     }
 
     const onSubmit = (data) => {
-        createUser(data.email,data.password)
-        .then(result =>{
-            const createdUser=result.user;
-            saveUser(createdUser)
-            navigate("/dashboard")
-            console.log(createdUser)
-        })
-        .catch(err=>{
-            console.log(err.message);
-        })
+        createUser(data.email, data.password)
+            .then(result => {
+                const createdUser = result.user;
+                saveUser(createdUser)
+                navigate("/dashboard")
+                console.log(createdUser)
+            })
+            .catch(err => {
+                console.log(err.message);
+            })
     };
 
     const handleGoogleSignIn = () => {
